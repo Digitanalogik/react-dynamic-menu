@@ -7,15 +7,7 @@ import {
   MenuItem as MUIMenuItem,
 } from "@mui/material";
 import * as Icons from "@mui/icons-material"; // Import all MUI icons
-import { SvgIconComponent } from "@mui/icons-material";
-
-export interface MenuItem {
-  label: string; // The label of the menu item
-  tooltip?: string; // Optional tooltip shown on hover
-  icon?: string | SvgIconComponent; // Can be a path to an SVG or a Material UI icon
-  action?: () => void; // Optional action to be executed on click
-  disabled?: boolean; // Optional flag to disable the menu item
-}
+import { MenuItem } from "../utils/Definitions";
 
 interface DynamicMenuProps {
   menuItems: MenuItem[];
@@ -23,6 +15,9 @@ interface DynamicMenuProps {
 
 const DynamicMenu: React.FC<DynamicMenuProps> = ({ menuItems }) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [submenuAnchorEl, setSubmenuAnchorEl] = React.useState<{
+    [key: string]: HTMLElement | null;
+  }>({});
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -32,40 +27,73 @@ const DynamicMenu: React.FC<DynamicMenuProps> = ({ menuItems }) => {
     setAnchorEl(null);
   };
 
+  const handleSubmenuClick = (
+    event: React.MouseEvent<HTMLLIElement>,
+    label: string
+  ) => {
+    setSubmenuAnchorEl((prev) => ({ ...prev, [label]: event.currentTarget }));
+  };
+
+  const handleSubmenuClose = (label: string) => {
+    setSubmenuAnchorEl((prev) => ({ ...prev, [label]: null }));
+  };
+
   const renderIcon = (icon?: string | React.ElementType) => {
     if (typeof icon === "string") {
-      // Render an SVG icon from a given path
       return <img src={icon} alt="menu-icon" width={24} height={24} />;
     } else if (icon) {
-      // Render a Material UI icon component
       const IconComponent = icon as React.ElementType;
       return <IconComponent />;
     }
     return null;
   };
 
+  const renderMenuItems = (items: MenuItem[], level: number = 0) => {
+    return items.map((item, index) => (
+      <div key={index}>
+        <Tooltip title={item.tooltip || ""}>
+          <MUIMenuItem
+            onClick={(e) => {
+              if (item.children) {
+                handleSubmenuClick(e, item.label);
+              } else {
+                item.action && item.action();
+                handleClose();
+              }
+            }}
+            disabled={item.disabled}
+          >
+            {renderIcon(item.icon)}
+            {item.label}
+            {item.children && <Icons.ArrowRight fontSize="small" />}{" "}
+            {/* Icon for submenu */}
+          </MUIMenuItem>
+        </Tooltip>
+
+        {item.children && (
+          <Menu
+            anchorEl={submenuAnchorEl[item.label] || null}
+            open={Boolean(submenuAnchorEl[item.label])}
+            onClose={() => handleSubmenuClose(item.label)}
+            anchorOrigin={{ vertical: "top", horizontal: "right" }}
+            transformOrigin={{ vertical: "top", horizontal: "left" }}
+          >
+            {renderMenuItems(item.children, level + 1)}{" "}
+            {/* Recursively render submenus */}
+          </Menu>
+        )}
+      </div>
+    ));
+  };
+
   return (
     <>
       <IconButton onClick={handleClick}>
-        {/* Button to trigger the menu */}
         <Icons.Menu />
       </IconButton>
 
       <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
-        {menuItems.map((item, index) => (
-          <Tooltip key={index} title={item.tooltip || ""}>
-            <MUIMenuItem
-              onClick={() => {
-                item.action && item.action();
-                handleClose();
-              }}
-              disabled={item.disabled}
-            >
-              {renderIcon(item.icon)}
-              {item.label}
-            </MUIMenuItem>
-          </Tooltip>
-        ))}
+        {renderMenuItems(menuItems)}
       </Menu>
     </>
   );
