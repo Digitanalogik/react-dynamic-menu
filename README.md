@@ -1,3 +1,5 @@
 # DynaMenu - Dynamic Menu for React
 
-Every UI needs a **Menu**
+![DynaMenu](./DynaMenu-Matrix.jpg)
+
+> Every UI needs a **Menu**
