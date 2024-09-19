@@ -25,6 +25,12 @@ const DynamicMenu: React.FC<DynamicMenuProps> = ({ menuItems }) => {
 
   const handleClose = () => {
     setAnchorEl(null);
+    setSubmenuAnchorEl((prev) => {
+      // Close all submenus
+      const newState = { ...prev };
+      Object.keys(newState).forEach((key) => (newState[key] = null));
+      return newState;
+    });
   };
 
   const handleSubmenuClick = (
