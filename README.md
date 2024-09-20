@@ -12,6 +12,14 @@
 
 #### Menu Structure
 
+#### Languages
+
+##### Create Translation Files:
+
+See folder `/public/locales/` in the project root.
+Inside `locales`, create subfolders for each language (e.g., `en`, `fi`).
+Place your translation JSON files in the respective language folders. For example, `locales/fi/translation.json` should contain the Finnish version for menu items.
+
 #### Flexible Icon Handling:
 
 - For **SVG paths**: Provide the icon as a string, e.g., icon: `/assets/icons/my-icon.svg`.
