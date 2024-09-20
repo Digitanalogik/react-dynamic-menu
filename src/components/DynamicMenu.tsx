@@ -8,12 +8,15 @@ import {
 } from "@mui/material";
 import * as Icons from "@mui/icons-material"; // Import all MUI icons
 import { MenuItem } from "../utils/Definitions";
+import { useTranslatedMenuItems } from "../hooks/useTranslatedMenuItems";
 
 interface DynamicMenuProps {
   menuItems: MenuItem[];
 }
 
 const DynamicMenu: React.FC<DynamicMenuProps> = ({ menuItems }) => {
+  const translatedMenuItems = useTranslatedMenuItems(menuItems);
+
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [submenuAnchorEl, setSubmenuAnchorEl] = React.useState<{
     [key: string]: HTMLElement | null;
@@ -99,7 +102,7 @@ const DynamicMenu: React.FC<DynamicMenuProps> = ({ menuItems }) => {
       </IconButton>
 
       <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
-        {renderMenuItems(menuItems)}
+        {renderMenuItems(translatedMenuItems)}
       </Menu>
     </>
   );
