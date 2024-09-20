@@ -1,0 +1,32 @@
+{
+  "menu": {
+    "backgrounds": "Taustat",
+    "maps": "Kartat",
+    "filter": "Suodatin",
+    "draw": "Piirrä",
+    "line": "Viiva",
+    "rectangle": "Suorakulmio",
+    "subtract": "Vähennä",
+    "download": "Lataa",
+    "settings": "Asetukset",
+    "profile": "Profiili",
+    "preferences": "Säädöt",
+    "save": "Tallenna",
+    "logout": "Kirjaudu ulos"
+  },
+  "tooltips": {
+    "backgrounds": "Valitse taustavaihtoehdot",
+    "maps": "Avaa karttavaihtoehdot",
+    "filter": "Käytä suodattimia",
+    "draw": "Piirtotyökalut",
+    "line": "Piirrä viiva",
+    "rectangle": "Piirrä suorakulmio",
+    "subtract": "Vähennä aluetta",
+    "download": "Lataa työsi",
+    "settings": "Säädä asetuksia",
+    "profile": "Aseta profiilitiedot",
+    "preferences": "Muokkaa mieltymyksiä",
+    "save": "Tallenna edistymisesi",
+    "logout": "Kirjaudu ulos tililtäsi"
+  }
+}

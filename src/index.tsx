@@ -4,6 +4,9 @@ import reportWebVitals from "./reportWebVitals";
 import App from "./App";
 import "./index.css";
 
+// import i18n (needs to be bundled for translations)
+import "./i18n";
+
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );

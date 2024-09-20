@@ -12,84 +12,83 @@ export interface MenuItem {
 
 export const menuItems: MenuItem[] = [
   {
-    label: "Backgrounds",
-    tooltip: "Choose background options",
-    icon: Icons.Landscape, // Icon for backgrounds
+    label: "menu.backgrounds",
+    tooltip: "tooltips.backgrounds",
+    icon: Icons.Landscape,
     action: () => console.log("Backgrounds clicked"),
   },
   {
-    label: "Maps",
-    tooltip: "Open maps options",
-    icon: Icons.Map, // Icon for maps
+    label: "menu.maps",
+    tooltip: "tooltips.maps",
+    icon: Icons.Map,
     action: () => console.log("Maps clicked"),
   },
   {
-    label: "Filter",
-    tooltip: "Apply filters",
-    icon: Icons.FilterAlt, // Icon for filters
+    label: "menu.filter",
+    tooltip: "tooltips.filter",
+    icon: Icons.FilterAlt,
     action: () => console.log("Filter clicked"),
   },
   {
-    label: "Draw",
-    tooltip: "Drawing tools",
-    icon: Icons.Brush, // Icon for draw
+    label: "menu.draw",
+    tooltip: "tooltips.draw",
+    icon: Icons.Brush,
     children: [
       {
-        label: "Line",
-        tooltip: "Draw a line",
-        icon: Icons.ShowChart, // Icon for line
+        label: "menu.line",
+        tooltip: "tooltips.line",
+        icon: Icons.ShowChart,
         action: () => console.log("Line clicked"),
       },
       {
-        label: "Rectangle",
-        tooltip: "Draw a rectangle",
-        icon: Icons.CropSquare, // Icon for rectangle
+        label: "menu.rectangle",
+        tooltip: "tooltips.rectangle",
+        icon: Icons.CropSquare,
         action: () => console.log("Rectangle clicked"),
       },
       {
-        label: "Subtract",
-        tooltip: "Subtract area",
-        icon: Icons.RemoveCircleOutline, // Icon for subtract
+        label: "menu.subtract",
+        tooltip: "tooltips.subtract",
+        icon: Icons.RemoveCircleOutline,
         action: () => console.log("Subtract clicked"),
       },
     ],
   },
   {
-    label: "Download",
-    tooltip: "Download your work",
-    icon: Icons.Download, // Icon for download
+    label: "menu.download",
+    tooltip: "tooltips.download",
+    icon: Icons.Download,
     action: () => console.log("Download clicked"),
   },
   {
-    label: "Settings",
-    tooltip: "Adjust settings",
-    icon: Icons.Settings, // Icon for settings
-    action: () => console.log("Settings clicked"),
+    label: "menu.settings",
+    tooltip: "tooltips.settings",
+    icon: Icons.Settings,
     children: [
       {
-        label: "Profile",
-        tooltip: "Edit Profile",
+        label: "menu.profile",
+        tooltip: "tooltips.profile",
         icon: Icons.Person,
         action: () => console.log("Profile clicked"),
       },
       {
-        label: "Preferences",
-        tooltip: "Set Preferences",
+        label: "menu.preferences",
+        tooltip: "tooltips.preferences",
         icon: Icons.Tune,
         action: () => console.log("Preferences clicked"),
       },
     ],
   },
   {
-    label: "Save",
-    tooltip: "Save your progress",
-    icon: Icons.Save, // Icon for save
+    label: "menu.save",
+    tooltip: "tooltips.save",
+    icon: Icons.Save,
     action: () => console.log("Save clicked"),
   },
   {
-    label: "Logout",
-    tooltip: "Log out of your account",
-    icon: Icons.ExitToApp, // Icon for logout
+    label: "menu.logout",
+    tooltip: "tooltips.logout",
+    icon: Icons.ExitToApp,
     action: () => console.log("Logout clicked"),
   },
 ];

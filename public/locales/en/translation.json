@@ -1,0 +1,32 @@
+{
+  "menu": {
+    "backgrounds": "Backgrounds",
+    "maps": "Maps",
+    "filter": "Filter",
+    "draw": "Draw",
+    "line": "Line",
+    "rectangle": "Rectangle",
+    "subtract": "Subtract",
+    "download": "Download",
+    "settings": "Settings",
+    "profile": "Profile",
+    "preferences": "Preferences",
+    "save": "Save",
+    "logout": "Logout"
+  },
+  "tooltips": {
+    "backgrounds": "Choose background options",
+    "maps": "Open maps options",
+    "filter": "Apply filters",
+    "draw": "Drawing tools",
+    "line": "Draw a line",
+    "rectangle": "Draw a rectangle",
+    "subtract": "Subtract area",
+    "download": "Download your work",
+    "settings": "Adjust settings",
+    "profile": "Change profile information",
+    "preferences": "Adjust user preferences",
+    "save": "Save your progress",
+    "logout": "Log out of your account"
+  }
+}
